@@ -1,6 +1,30 @@
 import React from 'react'
+import { useState } from 'react'
 
 const Login = () => {
+    const [email, setemail] = useState('')
+    const [pass, setpass] = useState('')
+    var [data] = useState({})
+    const submitHandler = async (e) => {
+        e.preventDefault();
+        const val = {
+            "email":email,
+            "pass":pass
+        }
+        const response = await fetch('/api/submit', {
+            method: 'POST',
+            body: JSON.stringify(val),
+            headers:{
+                'Content-Type':'application/json',
+            },
+        })
+
+        data = await response.json()
+        console.log(data)
+        // data.map(i=>{
+        //     console.log(i.stu_email)
+        // })
+    }
     return (
         <div className='h-screen flex-col gap-16 flex justify-center items-center bg-[#354931]'>
 
@@ -9,11 +33,17 @@ const Login = () => {
 
                 <input type="text" name="" id="" placeholder='Email'
                     className='input'
+                    onChange={(e) => {
+                        setemail(e.target.value)
+                    }}
                 />
                 <input type="text" name="" id="" placeholder='Password'
                     className='input'
+                    onChange={(e) => {
+                        setpass(e.target.value)
+                    }}
                 />
-                <button type="submit" className='inputbtn'>Submit</button>
+                <button type="submit" onClick={submitHandler} className='inputbtn'>Submit</button>
             </form>
             <div className='absolute bg-black h-96 w-80 rounded-lg opacity-20 z-0'>
             </div>

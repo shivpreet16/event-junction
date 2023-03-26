@@ -1,0 +1,3 @@
+student=([stu_email],stu_name,stu_pass=roll,yearOfEnr,{dept_name})
+
+teacher=([t_email],t_name,t_pass=kiit,dean_type,{dept_name})
