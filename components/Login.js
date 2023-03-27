@@ -4,6 +4,7 @@ import { useState } from 'react'
 const Login = () => {
     const [email, setemail] = useState('')
     const [pass, setpass] = useState('')
+    const [error, setError] = useState('')
     var [data] = useState({})
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -20,6 +21,10 @@ const Login = () => {
         })
 
         data = await response.json()
+        if(data.message)
+            setError(data.message)
+            else
+            setError('')
         console.log(data)
         // data.map(i=>{
         //     console.log(i.stu_email)
@@ -43,6 +48,7 @@ const Login = () => {
                         setpass(e.target.value)
                     }}
                 />
+                <span className={`${error != ''?'block':'hidden'} text-[#a2c495] absolute -top-12`}>{error}</span>
                 <button type="submit" onClick={submitHandler} className='inputbtn'>Submit</button>
             </form>
             <div className='absolute bg-black h-96 w-80 rounded-lg opacity-20 z-0'>
