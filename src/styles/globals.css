@@ -25,11 +25,11 @@
 }
 .css-1qs309j-MuiButtonBase-root-MuiPickersDay-root:focus.Mui-selected {
   will-change: background-color;
-  background-color: #a2c495;
+  background-color: #6d8667;
 }
 .css-1qs309j-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
   color: #fff;
-  background-color: #a2c495;
+  background-color: #6d8667;
 }
 .css-7oawqu-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
 background-color: #437033;
@@ -54,4 +54,8 @@ background-color: #437033;
 .css-1beqopj-MuiPickersYear-yearButton.Mui-selected:hover {
   color: #fff;
   background-color: #437033;
+}
+
+.MuiButtonBase-root:hover{
+  background-color: rgba(119, 180, 88, 0.521);
 }

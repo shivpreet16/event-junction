@@ -1,15 +1,18 @@
 import * as React from 'react';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import Calendar from '../../components/Calendar'
 
 export default function BasicDateCalendar() {
-  return (
-    <div className=''>
+  const handlechange = (newvalue) => {
+    console.log("hii")
 
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DateCalendar />
-    </LocalizationProvider>
+  }
+  return (
+    <div className='h-screen w-full'>
+      <div className='absolute left-0'>
+
+        <Calendar />
+      </div>
+      
     </div>
   );
 }
