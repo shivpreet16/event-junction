@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
-import Cookies from 'js-cookie'
+// import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
-import { setTokenCookie } from '@/pages/utils/auth'
+import { getTokenCookie, setTokenCookie } from '@/pages/utils/auth'
 
 const Login = () => {
     const router = new useRouter();
@@ -25,24 +25,18 @@ const Login = () => {
             },
         })
 
-        data = await response.json()
+        const info = await response.json()
         
-        console.log(data.token)
+        console.log(info.token)
         
-        if (data.message)
-            setError(data.message)
+        if (info.message==="Logged in"){
+            setError('')
+            console.log(info.message)
+            router.push('/student')
+        }
 
         else {
-            setError('')
-
-            setTokenCookie(data.token)
-            router.push('/student')
-            
-            // Cookies.set('loggedin',true)
-            // if (email.includes('fcs'))
-            //     router.push("/Home/faculty")
-            // else
-            //     router.push("/Home/student")
+            setError(info.message)
             }
             
         }

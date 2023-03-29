@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import Calendar from '../../components/Calendar'
+import withAuth from './utils/withAuth';
 
 function BasicDateCalendar() {
   const handlechange = (newvalue) => {
