@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import Calendar from '../../components/Calendar'
 
-export default function BasicDateCalendar() {
+function BasicDateCalendar() {
   const handlechange = (newvalue) => {
     console.log("hii")
 
