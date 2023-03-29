@@ -1,9 +1,11 @@
 const client = require("./client.js");
 const queries = require("./queries.js");
 const auth = require("./controller");
+import jwt from "jsonwebtoken"
 
 export default function submit(req, res) {
   if (req.method === "POST") {
+    const KEY="ljsdafaksdnvasbdjfknaefhnaasdfasdfmdbfaiusebfwh"
     const data = req.body;
     const response = auth.checkEmail(data);
 
@@ -16,7 +18,12 @@ export default function submit(req, res) {
           const rowvals = result.rows;
 
           if (auth.checkPass(rowvals[0].stu_pass, data)) {
-            res.send(result.rows);
+            res.json({
+              token:jwt.sign({
+                username:rowvals[0].stu_email,
+                admin:true
+              },KEY)
+            });
           } else res.send(JSON.stringify({ message: "wrong pass" }));
         } else {
           res.send(err.message);

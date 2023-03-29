@@ -1,3 +1,17 @@
 student=([stu_email],stu_name,stu_pass=roll,yearOfEnr,{dept_name})
 
-teacher=([t_email],t_name,t_pass=kiit,dean_type,{dept_name})
+faculty=([f_email],f_name,f_pass=kiit,dean_type,{dept_name})
+
+department=([dept_name])
+
+ongoing_events=([appliction_id], event_name, event_desc, status, dateSubmitted, dateRequested, timeRequested, venueRequested, dean_remark, faculty_remark, {stu_email},{f_email},{dean_email})
+
+requirements=([application_id], req)
+
+rejected_events=([application_id], event_name, dean_remark, faculty_remark, {stu_email}, {f_email})
+
+assumptions:
+1. We are deleting all rejected events fron ongoing_events
+2. The requirements are deleted in the following scenarios:
+	i. Completeing of approved events
+	ii. Rejected events

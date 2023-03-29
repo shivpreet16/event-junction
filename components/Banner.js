@@ -4,8 +4,8 @@ const Banner = () => {
   return (
     <div className=" bg-[#bcbcbc] h-screen w-full relative overflow-x-hidden">
       <div className="w-full absolute h-[60vh] flex justify-center items-center flex-col gap-10">
-        <h1 className="text-[#262926] font-anton uppercase font-black text-3xl md:text-[100px]">Event Junction</h1>
-        <h2 className="font-anton opacity-50 font-bold">Helping you plan a series of fortunate events</h2>
+        <h1 className="text-[#262926] font-anton uppercase font-black text-3xl md:text-[60px] lg:text-[80px]">Event Junction</h1>
+        <h2 className="font-anton md:text-[20px] opacity-50 font-bold xs:text-[20px]">Helping you plan a series of fortunate events</h2>
       </div>
       <img src="./wave.svg" alt=""
         className="bottom-8 lg:bottom-20 absolute w-full"

@@ -9,6 +9,7 @@ export default function Calendar() {
     const handlechange = async(newvalue) => {
         // console.log("hii")
         setdate(newvalue)
+        // setVal(6)
         const data = {
             d: newvalue.$d.getDate(),
             m: newvalue.$d.getMonth()+1,

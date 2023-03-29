@@ -1,4 +1,5 @@
 function checkEmail(data) {
+  console.log(data)
     if (data.email.substr(data.email.length-10).includes("kiit.ac.in")){
         if(data.email.includes("fcs")){
             return "faculty"

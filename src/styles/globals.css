@@ -16,7 +16,8 @@
   
   .MuiDateCalendar-root{
     
-    background-color: #ededed;
+    background-color: white;
+    border-radius: 10px;
   }
   
   .css-1qs309j-MuiButtonBase-root-MuiPickersDay-root.Mui-selected:hover {
