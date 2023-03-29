@@ -1,9 +1,11 @@
 import React,{useState} from 'react';
 import Calendar from '../../components/Calendar'
-import AllEvents from '../../components/AllEvents';
-import withAuth from './utils/withAuth';
 
-function BasicDateCalendar() {
+export default function BasicDateCalendar() {
+  const handlechange = (newvalue) => {
+    console.log("hii")
+
+  }
   return (
     <div className='h-screen w-full bg-[#ededed] flex justify-center '>
       <div className='absolute md:right-0 md:m-10 md:mt-3 mt-3'>
