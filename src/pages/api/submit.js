@@ -1,6 +1,8 @@
 const client = require("./client.js");
 const queries = require("./queries.js");
 const auth = require("./controller");
+import { setTokenCookie } from "../utils/auth.js";
+import { Jwt } from "jsonwebtoken";
 
 export default function submit(req, res) {
   if (req.method === "POST") {
@@ -16,6 +18,7 @@ export default function submit(req, res) {
           const rowvals = result.rows;
 
           if (auth.checkPass(rowvals[0].stu_pass, data)) {
+            setTokenCookie()
             res.send(result.rows);
           } else res.send(JSON.stringify({ message: "wrong pass" }));
         } else {

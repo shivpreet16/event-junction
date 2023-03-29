@@ -1,7 +1,8 @@
 import * as React from 'react';
 import Calendar from '../../components/Calendar'
+import withAuth from './utils/withAuth';
 
-export default function BasicDateCalendar() {
+function BasicDateCalendar() {
   const handlechange = (newvalue) => {
     console.log("hii")
 
@@ -16,3 +17,5 @@ export default function BasicDateCalendar() {
     </div>
   );
 }
+
+export default withAuth(BasicDateCalendar)

@@ -51,7 +51,7 @@ const Login = () => {
                 <span className={`${error != ''?'block':'hidden'} text-[#a2c495] absolute -top-12`}>{error}</span>
                 <button type="submit" onClick={submitHandler} className='inputbtn'>Submit</button>
             </form>
-            <div className='absolute bg-black h-96 w-80 rounded-lg opacity-20 z-0'>
+            <div className='absolute bg-black h-96 w-64 rounded-lg md:w-80 opacity-20 z-0'>
             </div>
         </div>
     )
