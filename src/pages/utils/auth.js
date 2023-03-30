@@ -24,5 +24,5 @@ export const getTokenCookie = () => {
 
 export const isAuthenticated = () => {
   const token = getTokenCookie();
-  return !!token;
+  return token;
 };

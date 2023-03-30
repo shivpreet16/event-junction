@@ -1,6 +1,6 @@
 import React from 'react'
 
-const allEvents = () => {
+const AllEvents = () => {
     return (
 
         <div className=' h-[18rem] w-full bg-white mt-5 flex flex-col align-center rounded-[10px] overflow-hidden'>
@@ -37,4 +37,4 @@ const allEvents = () => {
     )
 }
 
-export default allEvents
+export default AllEvents

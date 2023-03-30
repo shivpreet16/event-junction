@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import Calendar from '../../components/Calendar'
+// import withAuth from './utils/withAuth';
 import withAuth from './utils/withAuth';
+import AllEvents from '../../components/AllEvents';
 
 function BasicDateCalendar() {
   const handlechange = (newvalue) => {
@@ -18,4 +20,5 @@ function BasicDateCalendar() {
   );
 }
 
-export default withAuth(BasicDateCalendar)
+export default BasicDateCalendar
+

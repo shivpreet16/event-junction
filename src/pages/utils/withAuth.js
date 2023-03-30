@@ -9,7 +9,7 @@ const withAuth = (WrappedComponent) => {
     const token = getTokenCookie();
 
     useEffect(() => {
-      if (!isAuthenticated()) {
+      if (isAuthenticated()) {
         Router.push('/');
       }
     }, []);

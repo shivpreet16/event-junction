@@ -1,10 +1,15 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 // import Cookies from 'js-cookie'
-import { useRouter } from 'next/router'
+import { Router, useRouter } from 'next/router'
 import { getTokenCookie, setTokenCookie } from '@/pages/utils/auth'
+// import { useRouter } from 'next/router'
 
 const Login = () => {
+    useEffect(() => {
+      localStorage.setItem('1',JSON.stringify({"name":"user"}))
+    }, [])
+    
     const router = new useRouter();
     const [email, setemail] = useState('')
     const [pass, setpass] = useState('')
@@ -25,19 +30,17 @@ const Login = () => {
             },
         })
 
-        const info = await response.json()
-        
-        console.log(info.token)
-        
-        if (info.message==="Logged in"){
-            setError('')
-            console.log(info.message)
-            router.push('/student')
+        const token = response.headers.get('Authorization')
+        if(token){
+            console.log("Login successful")
+            setTokenCookie(token)
+            console.log(getTokenCookie())
+            router.push(response.headers.get('Path'))
         }
-
-        else {
-            setError(info.message)
-            }
+        else{
+            const info = await response.json()
+            console.log(info.message)
+        }
             
         }
         return (

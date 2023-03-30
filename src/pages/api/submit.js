@@ -27,14 +27,15 @@ export default function submit(req, res) {
                 KEY
               ),
             });
-            res.setHeader(
-              "Set-Cookie",
-              `token=${token}; HttpOnly; Max-Age=604800; SameSite=Strict`
-            );
+            // console.log(token)
+            res.setHeader('Content-Type', 'application/json')
+            res.setHeader('Authorization', token)
+            res.setHeader("Set-Cookie",'token=${token}; Max-Age=604800; SameSite=Strict');
+            // res.setHeader("Set-Cookie",`token=${token}; Max-Age=604800; SameSite=Strict` );
+            res.setHeader("Path", '/student' );
             // res.status(200).json({ message: "Login successful" });
-            setTokenCookie(token)
-            res.send(JSON.stringify({ message: 'Logged in' }))
-          } else res.send(JSON.stringify({ message: "wrong password" }));
+            res.send(JSON.stringify({ message: 'Logged in'}))
+          } else res.send(JSON.stringify({ message: "Wrong Password" }));
         } else {
           res.send(err.message);
         }
