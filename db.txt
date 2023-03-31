@@ -15,3 +15,8 @@ assumptions:
 2. The requirements are deleted in the following scenarios:
 	i. Completeing of approved events
 	ii. Rejected events
+
+
+submited_events=([appliction_id], event_name, event_desc, dateSubmitted, dateRequested, timeRequested, venueRequested, dean_remark, faculty_remark, {stu_email},{f_email},{dean_email})
+
+decided_events=([appliction_id], event_name, event_desc, status, dateSubmitted, date_allotted, time_allotted, venue_allotted, dean_remark, faculty_remark, {stu_email}, {f_email},{dean_email})
