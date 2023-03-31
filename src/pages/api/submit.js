@@ -6,13 +6,12 @@ import jwt from "jsonwebtoken"
 
 export default function submit(req, res) {
   if (req.method === "POST") {
-    const KEY="ljsdafaksdnvasbdjfknaefhnaasdfasdfmdbfaiusebfwh"
+    const KEY = "ljsdafaksdnvasbdjfknaefhnaasdfasdfmdbfaiusebfwh";
     const data = req.body;
     const response = auth.checkEmail(data);
 
     if (response === "Wrong email")
       res.send(JSON.stringify({ message: response }));
-      
     else if (response === "student") {
       client.query(queries.getStudentById, [data.email], (err, result) => {
         if (!err) {
@@ -25,9 +24,6 @@ export default function submit(req, res) {
                 admin:true
               },KEY)
             });
-            
-            setCookie('anything_cookie', token, {req,res,maxAge:60*6})
-            res.send(rowvals)
           } else res.send(JSON.stringify({ message: "wrong pass" }));
         } else {
           res.send(err.message);
@@ -39,7 +35,7 @@ export default function submit(req, res) {
           const rowvals = result.rows;
           if (auth.checkPass(rowvals[0].f_pass, data)) {
             res.send(result.rows);
-          } else res.send(JSON.stringify({ message: "worng pass" }));
+          } else res.send(JSON.stringify({ message: "Wrong password" }));
         } else {
           res.send(err.message);
         }

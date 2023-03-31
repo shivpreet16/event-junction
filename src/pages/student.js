@@ -29,4 +29,4 @@ function student(props) {
   );
 }
 
-export default student
+export default withAuth(BasicDateCalendar)

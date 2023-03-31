@@ -6,6 +6,10 @@ import { setTokenCookie } from '@/pages/utils/auth'
 import { getCookie } from 'cookies-next'
 
 const Login = () => {
+    useEffect(() => {
+      localStorage.setItem('1',JSON.stringify({"name":"user"}))
+    }, [])
+    
     const router = new useRouter();
     const [email, setemail] = useState('')
     const [pass, setpass] = useState('')
@@ -28,7 +32,7 @@ const Login = () => {
 
         data = await response.json()
         
-        // console.log(data)
+        console.log(data.token)
         
         if (data.message)
             setError(data.message)
@@ -36,21 +40,14 @@ const Login = () => {
         else {
             setError('')
 
-            // setTokenCookie(data.token)
-            // router.push('/student')
+            setTokenCookie(data.token)
+            router.push('/student')
             
             // Cookies.set('loggedin',true)
-            if (email.includes('fcs'))
-                router.push("/faculty")
-            else{
-                router.push({
-                    pathname:"/student",
-                    query:{message:email}
-                    
-                },'/')
-                
-                // console.log("success")
-            }
+            // if (email.includes('fcs'))
+            //     router.push("/Home/faculty")
+            // else
+            //     router.push("/Home/student")
             }
             
         }
