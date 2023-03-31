@@ -1,9 +1,9 @@
 import React from 'react'
 
-const allEvents = () => {
+const AllEvents = () => {
     return (
 
-        <div className=' h-[18rem] w-full bg-white mt-5 flex flex-col align-center rounded-[10px] overflow-hidden'>
+        <div className=' h-full max-h-[18rem] w-full bg-white mt-5 flex flex-col align-center rounded-[10px] overflow-hidden'>
             <h3 className=' text-center mt-3'>All Events</h3>
             <div className=' overflow-y-auto hover:scrollbar-thumb-[#303030b0] scrollbar-track-slate-400 scrollbar-thumb-[#5e5e5e8c] scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
 
@@ -37,4 +37,4 @@ const allEvents = () => {
     )
 }
 
-export default allEvents
+export default AllEvents

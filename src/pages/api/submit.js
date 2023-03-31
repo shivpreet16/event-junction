@@ -1,6 +1,7 @@
 const client = require("./client.js");
 const queries = require("./queries.js");
 const auth = require("./controller");
+import {setCookie} from 'cookies-next';
 import jwt from "jsonwebtoken"
 
 export default function submit(req, res) {
@@ -18,12 +19,15 @@ export default function submit(req, res) {
           const rowvals = result.rows;
 
           if (auth.checkPass(rowvals[0].stu_pass, data)) {
-            res.json({
+            const token =({
               token:jwt.sign({
                 username:rowvals[0].stu_email,
                 admin:true
               },KEY)
             });
+            
+            setCookie('anything_cookie', token, {req,res,maxAge:60*6})
+            res.send(rowvals)
           } else res.send(JSON.stringify({ message: "wrong pass" }));
         } else {
           res.send(err.message);
