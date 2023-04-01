@@ -1,7 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import Calendar from '../../components/Calendar'
 import AllEvents from '../../components/AllEvents';
-// import withAuth from './utils/withAuth';
 import { Router, useRouter } from 'next/router';
 import { getCookie } from 'cookies-next';
 import Apply from '../../components/Apply';
