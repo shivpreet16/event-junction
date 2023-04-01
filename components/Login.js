@@ -1,9 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
-import { setTokenCookie } from '@/pages/utils/auth'
-import { getCookie } from 'cookies-next'
 
 const Login = () => {
     const router = new useRouter();
@@ -47,7 +44,7 @@ const Login = () => {
                     pathname:"/student",
                     query:{message:email}
                     
-                },'/')
+                })
                 
                 // console.log("success")
             }

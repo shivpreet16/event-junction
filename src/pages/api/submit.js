@@ -25,7 +25,7 @@ export default function submit(req, res) {
               },KEY)
             });
             
-            setCookie('anything_cookie', token, {req,res,maxAge:60*6})
+            setCookie('anything_cookie', token, {req,res,maxAge:60*6*24})
             res.send(rowvals)
           } else res.send(JSON.stringify({ message: "wrong pass" }));
         } else {

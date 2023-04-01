@@ -20,6 +20,7 @@
     border-radius: 10px;
     min-width:max-content;
     width:100%;
+    @apply mx-5 md:mx-0;
   }
   
   .css-1qs309j-MuiButtonBase-root-MuiPickersDay-root.Mui-selected:hover {
