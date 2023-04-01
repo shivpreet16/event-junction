@@ -4,19 +4,65 @@ faculty=([f_email],f_name,f_pass=kiit,dean_type,{dept_name})
 
 department=([dept_name])
 
-ongoing_events=([appliction_id], event_name, event_desc, status, dateSubmitted, dateRequested, timeRequested, venueRequested, dean_remark, faculty_remark, {stu_email},{f_email},{dean_email})
-
-requirements=([application_id], req)
-
-rejected_events=([application_id], event_name, dean_remark, faculty_remark, {stu_email}, {f_email})
-
-assumptions:
-1. We are deleting all rejected events fron ongoing_events
-2. The requirements are deleted in the following scenarios:
-	i. Completeing of approved events
-	ii. Rejected events
-
-
 submited_events=([appliction_id], event_name, event_desc, dateSubmitted, dateRequested, timeRequested, venueRequested, dean_remark, faculty_remark, {stu_email},{f_email},{dean_email})
 
 decided_events=([appliction_id], event_name, event_desc, status, dateSubmitted, date_allotted, time_allotted, venue_allotted, dean_remark, faculty_remark, {stu_email}, {f_email},{dean_email})
+
+requirements=([application_id], req)
+
+Assumptions:
+1. We move events that are rejected or accepted into decided_events table from submitted_events
+2. submitted_events table should only contain pending events
+3. The requirements are deleted in the following scenarios:
+	i. Completion of approved events
+	ii. Rejected events
+
+
+QUERIES:
+
+CREATE TABLE FACULTY(
+ F_EMAIL VARCHAR(20) PRIMARY KEY,
+ F_NAME VARCHAR(20),
+ F_PASS VARCHAR(10),
+ DEAN_TYPE BOOLEAN,
+ DEPT_NAME VARCHAR(50),
+ CONSTRAINT FK_DEPT_NAME
+      FOREIGN KEY(DEPT_NAME)
+              REFERENCES DEPARTMENT(DEPT_NAME)
+);
+
+CREATE TABLE STUDENT(
+ STU_EMAIL VARCHAR(20) PRIMARY KEY,
+ STU_NAME VARCHAR(20),
+ STU_PASS VARCHAR(10),
+ YEAR_OF_ENR INT,
+ DEPT_NAME VARCHAR(50),
+ CONSTRAINT FK_DEPT_NAME
+      FOREIGN KEY(DEPT_NAME)
+              REFERENCES DEPARTMENT(DEPT_NAME)
+);
+
+create table submited_events(
+ application_id int,
+ event_name varchar(15),
+ event_desc varchar(100),
+ date_submited date,
+ date_requested date,
+ time_requested time,
+ venue_requested varchar(30),
+ dean_remark varchar(60),
+ faculty_remark varchar(60),
+ stu_email varchar(20),
+ f_email varchar(20),
+ dean_email varchar(20),
+ primary key(application_id),
+ constraint fk_stu_email
+       foreign key(stu_email)
+               references student(stu_email)
+ constraint fk_fic_email
+       foreign key(f_email)
+               references faculty(f_email)
+ constraint fk_dean_email
+       foreign key(dean_email)
+               references faculty(f_email)
+);

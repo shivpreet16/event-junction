@@ -25,7 +25,7 @@ export default function submit(req, res) {
               },KEY)
             });
             
-            setCookie('anything_cookie', token, {req,res,maxAge:60*6*24})
+            setCookie('student_cookie', token, {req,res,maxAge:60*6*24})
             res.send(rowvals)
           } else res.send(JSON.stringify({ message: "wrong pass" }));
         } else {
@@ -37,7 +37,15 @@ export default function submit(req, res) {
         if (!err) {
           const rowvals = result.rows;
           if (auth.checkPass(rowvals[0].f_pass, data)) {
-            res.send(result.rows);
+            const token =({
+              token:jwt.sign({
+                username:rowvals[0].f_email,
+                admin:true
+              },KEY)
+            });
+            
+            setCookie('faculty_cookie', token, {req,res,maxAge:60*6*24})
+            res.send(rowvals)
           } else res.send(JSON.stringify({ message: "Wrong password" }));
         } else {
           res.send(err.message);

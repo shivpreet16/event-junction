@@ -1,15 +1,14 @@
 import React, { useState,useEffect } from 'react';
 import Calendar from '../../components/Calendar'
 import AllEvents from '../../components/AllEvents';
-// import withAuth from './utils/withAuth';
 import { Router, useRouter } from 'next/router';
 import { getCookie } from 'cookies-next';
 
 function student(props) {
   const router = useRouter()
-  const { message } = router.query
+  // const { message } = router.query
   useEffect(() => {
-    if(!getCookie('anything_cookie')){
+    if(!getCookie('student_cookie')){
         router.push('/')
     }
   }, [])

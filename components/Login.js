@@ -25,28 +25,19 @@ const Login = () => {
 
         data = await response.json()
         
-        // console.log(data)
-        
         if (data.message)
             setError(data.message)
 
         else {
             setError('')
-
-            // setTokenCookie(data.token)
-            // router.push('/student')
-            
-            // Cookies.set('loggedin',true)
             if (email.includes('fcs'))
-                router.push("/faculty")
+                router.push({
+                    pathname: '/faculty'
+                })
             else{
                 router.push({
-                    pathname:"/student",
-                    query:{message:email}
-                    
+                    pathname:"/student" 
                 })
-                
-                // console.log("success")
             }
             }
             
