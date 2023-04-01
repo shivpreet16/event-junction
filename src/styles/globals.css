@@ -63,3 +63,8 @@ background-color: #437033;
 .MuiButtonBase-root:hover{
   background-color: rgba(119, 180, 88, 0.521);
 }
+
+.apply-input{
+  @apply outline-none border-b shadow-lg border-black rounded-lg px-3 md:px-6 py-2 caret-[#b6b6b6] bg-gray-100
+}
+
