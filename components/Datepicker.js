@@ -13,7 +13,7 @@ export default function Datepicker({setSelectedDate}) {
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs} >
             <DatePicker 
-                className='scale-[0.6] -translate-x-[2.5rem]  md:-translate-x-[3.25rem] -translate-y-[0.60rem]'
+                className='scale-[0.6] -translate-x-[3.5rem]  md:-translate-x-[3.25rem] -translate-y-[0.60rem]'
                 onChange={handleDateChange}
             />
         </LocalizationProvider>
