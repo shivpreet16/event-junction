@@ -10,6 +10,10 @@ decided_events=([appliction_id], event_name, event_desc, status, dateSubmitted, 
 
 requirements=([application_id], req)
 
+communities=([community_name], date_of_creation, verified_status)
+
+student_coordinators=({community_name}, {stu_email})
+
 Assumptions:
 1. We move events that are rejected or accepted into decided_events table from submitted_events
 2. submitted_events table should only contain pending events

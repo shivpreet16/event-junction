@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const Profile = () => {
+const Profile = (props) => {
+  useEffect(() => {
+    if(error!=''){
+      
+    }
+  })
   return (
-    <div>Profile</div>
+    <div>
+      <div>
+        <label htmlFor="">Name</label>
+        <label htmlFor="">{props.name}</label>
+      </div>
+    </div>
   )
 }
 
