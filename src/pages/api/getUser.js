@@ -1,6 +1,6 @@
-const client = require("./client.js");
-const queries = require("./queries.js");
-const auth = require("./controller");
+const client = require("../../controllers/client.js");
+const queries = require("../../controllers/queries.js");
+const auth = require("../../controllers/controller.js");
 import { setCookie } from 'cookies-next';
 import jwt from "jsonwebtoken"
 

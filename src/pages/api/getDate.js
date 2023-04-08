@@ -1,5 +1,5 @@
-const client = require("./client")
-const queries=require("./queries")
+const client = require("../../controllers/client")
+const queries=require("../../controllers/queries")
 
 export default function date(req,res) {
     function getInfo(i){
