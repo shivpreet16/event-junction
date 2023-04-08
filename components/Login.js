@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+// import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 
 const Login = () => {
     const router = new useRouter();
@@ -8,6 +9,9 @@ const Login = () => {
     const [pass, setpass] = useState('')
     const [error, setError] = useState('')
     const [data, setData] = useState({})
+    const [visibile, setvisibile] = useState(0)
+    var src = ['visible_off.svg', 'visible.svg']
+    const [type, settype] = useState('password')
     const submitHandler = async (e) => {
         e.preventDefault();
         const val = {
@@ -55,12 +59,21 @@ const Login = () => {
                             setemail(e.target.value)
                         }}
                     />
-                    <input type="password" name="" id="" placeholder='Password'
+                    <div className='flex relative'>
+                    <input type={type} name="" id="" placeholder='Password'
                         className='input'
                         onChange={(e) => {
                             setpass(e.target.value)
                         }}
-                    />
+                        />
+                        <div onClick={(e)=>{
+                        e.preventDefault()
+                        setvisibile((visibile==1?0:1))
+                        settype((type==='text'?'password':'text'))
+                    }}>
+                    <img src={src[visibile]} alt="" className={`w-5 h-auto absolute right-3 top-1/3`}/>
+                        </div>
+                    </div>
                     <span className={`${error != '' ? 'block' : 'hidden'} text-[#a2c495] absolute -top-12`}>{error}</span>
                     <button type="submit" onClick={submitHandler} className='inputbtn'>Submit</button>
                 </form>
