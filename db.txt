@@ -46,6 +46,10 @@ CREATE TABLE STUDENT(
               REFERENCES DEPARTMENT(DEPT_NAME)
 );
 
+CREATE TABLE DEPARTMENT(
+        DEPT_NAME VARCHAR(50) PRIMARY KEY
+);
+
 create table submited_events(
  application_id int,
  event_name varchar(15),
@@ -62,11 +66,22 @@ create table submited_events(
  primary key(application_id),
  constraint fk_stu_email
        foreign key(stu_email)
-               references student(stu_email)
+               references student(stu_email),
  constraint fk_fic_email
        foreign key(f_email)
-               references faculty(f_email)
+               references faculty(f_email),
  constraint fk_dean_email
        foreign key(dean_email)
                references faculty(f_email)
 );
+
+CREATE TABLE REQUIREMENTS(
+ APPLICATION_ID INT,
+ REQUIREMENT_DESC VARCHAR(20),
+ REQUIREMENT_STATUS BOOLEAN
+);
+
+ALTER TABLE REQUIREMENTS
+ALTER COLUMN REQUIREMENT_STATUS SET DEFAULT TRUE;
+
+ALTER TABLE REQUIREMENTS ADD PRIMARY KEY (APPLICATION_ID, REQUIREMENT_DESC);

@@ -7,7 +7,7 @@ const Login = () => {
     const [email, setemail] = useState('')
     const [pass, setpass] = useState('')
     const [error, setError] = useState('')
-    var [data] = useState({})
+    const [data, setData] = useState({})
     const submitHandler = async (e) => {
         e.preventDefault();
         const val = {
@@ -23,7 +23,7 @@ const Login = () => {
             },
         })
 
-        data = await response.json()
+        setData(await response.json())
         
         if (data.message)
             setError(data.message)
@@ -36,8 +36,9 @@ const Login = () => {
                 })
             else{
                 router.push({
-                    pathname:"/student" 
-                })
+                    pathname:"/student", 
+                    query: {email:email},
+                }, '/')
             }
             }
             
@@ -54,7 +55,7 @@ const Login = () => {
                             setemail(e.target.value)
                         }}
                     />
-                    <input type="text" name="" id="" placeholder='Password'
+                    <input type="password" name="" id="" placeholder='Password'
                         className='input'
                         onChange={(e) => {
                             setpass(e.target.value)

@@ -1,16 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
-const Profile = (props) => {
-  useEffect(() => {
-    if(error!=''){
-      
-    }
-  })
+const Profile = ({email}) => {
   return (
-    <div>
+    <div className='bg-[#edededed] h-full w-80% ml-10 mb-10 rounded-[10px]'>
       <div>
-        <label htmlFor="">Name</label>
-        <label htmlFor="">{props.name}</label>
+        {email}
       </div>
     </div>
   )
