@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import Calendar from '../../components/Calendar'
 import AllEvents from '../../components/AllEvents'
 import Profile from '../../components/Profile'
+import Profile from '../../components/Profile'
 
 export default function faculty() {
   const router = useRouter()
@@ -46,7 +47,9 @@ export default function faculty() {
 
   return (
     <div className='max-h-fit h-full lg:h-[100vh] w-full bg-[#ededed] flex flex-col lg:flex-row justify-between gradient'>
+    <div className='max-h-fit h-full lg:h-[100vh] w-full bg-[#ededed] flex flex-col lg:flex-row justify-between gradient'>
     <div className='flex flex-col w-full lg:w-[70%] gap-2'>
+      <ul className='w-full flex justify-evenly mt-10 nav'>
       <ul className='w-full flex justify-evenly mt-10 nav'>
         <li>All Events</li>
         <li onClick={(e)=>{
