@@ -2,6 +2,9 @@ import React,{useState} from "react";
 
 const Profile = ({ email, name, YOE, dept, active }) => {
   const [password, setpassword] = useState(false)
+  const [visible, setvisible] = useState(0)
+  const [type, settype] = useState('password')
+  var src = ['visible.svg', 'visible_off.svg']
   return (
     <div
       className={`bg-[#edededed] h-full w-80% ml-10 flex flex-col mb-10 rounded-[10px] text-[#6d8667] justify-center items-center relative ${
@@ -26,11 +29,23 @@ const Profile = ({ email, name, YOE, dept, active }) => {
       }`}>
         <div className="flex relative gap-3">
       <span>Current Password:</span>
-      <input type="password" name="current" id="current" className=" outline-none rounded-lg bg-[#749465] text-[#ededed] px-2 focus:border-black"/>
+      <input type={type} name="current" id="current" className=" outline-none rounded-lg bg-[#749465] text-[#ededed] px-2 focus:border-black"/>
+      <img src={src[visible]} alt="" className="w-5 h-auto absolute right-2 bottom-1" onClick={(e)=>{
+        e.preventDefault()
+        setvisible(visible==1?0:1)
+        settype(type==='text'?'password':'text')
+      }}/>
         </div>
-        <div className="flex gap-3">
+      <div className="flex gap-3">
       <span>New Password:</span>
-      <input type="password" name="current" id="current" className="absolute right-0 outline-none rounded-lg bg-[#749465] text-[#ededed] px-2 focus:border-black"/>
+      <div>
+      <input type={type} name="current" id="current" className="absolute right-0 outline-none rounded-lg bg-[#749465] text-[#ededed] px-2 focus:border-black"/>
+      <img src={src[visible]} alt="" className="w-5 h-auto absolute right-2 bottom-1" onClick={(e)=>{
+        e.preventDefault()
+        setvisible(visible==1?0:1)
+        settype(type==='text'?'password':'text')
+      }}/>
+      </div>
         </div>
       </div>
     </div>
