@@ -38,7 +38,7 @@ const Login = () => {
                 router.push({
                     pathname:"/student", 
                     query: {email:email},
-                }, '/')
+                })
             }
             }
             
