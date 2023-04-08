@@ -21,16 +21,16 @@ const Profile = ({ email, name, YOE, dept, active }) => {
         e.preventDefault()
         setpassword(!password)
       }}>Change Password</button>
-      <div className={`flex absolute flex-col top-64 text-center text-lg font-semibold tracking-[1px] gap-[0.175rem] ${
+      <div className={`flex absolute flex-col top-64 text-center text-lg font-semibold tracking-[1px] gap-4 ${
         password ? 'block':'hidden' 
       }`}>
-        <div className="flex gap-3">
+        <div className="flex relative gap-3">
       <span>Current Password:</span>
-      <input type="password" name="current" id="current" className=""/>
+      <input type="password" name="current" id="current" className=" outline-none rounded-lg bg-[#749465] text-[#ededed] px-2 focus:border-black"/>
         </div>
         <div className="flex gap-3">
       <span>New Password:</span>
-      <input type="password" name="current" id="current" className=""/>
+      <input type="password" name="current" id="current" className="absolute right-0 outline-none rounded-lg bg-[#749465] text-[#ededed] px-2 focus:border-black"/>
         </div>
       </div>
     </div>
