@@ -19,20 +19,22 @@ function student(props) {
   }, [])
   // const [data, setData] = useState({})
 
-  const getUserData = async() => {
+  const getUserData = async(e) => {
+    e.preventDefault()
     const val = {
       "email": email
     }
     const response = ('/api/getUser', {
       method: 'POST',
       body: JSON.stringify(val),
+      credentials: 'include',
       headers: {
         'Content-Type' : 'application/json'
       },
     })
 
-    const data = await response.json()
-    console.log(data)
+    // const data = await response.json()
+    console.log(response)
   }
   
   return (
@@ -47,8 +49,8 @@ function student(props) {
             e.preventDefault()
             setactive('communities')
           }}>Communities</li>
-          <li onClick={()=>{
-            getUserData()
+          <li onClick={(e)=>{
+            getUserData(e)
             setactive('profile')
           }}
           className='relative cursor-pointer'>
