@@ -3,7 +3,6 @@ import Calendar from '../../components/Calendar'
 import AllEvents from '../../components/AllEvents';
 import { useRouter } from 'next/router';
 import { getCookie, parseCookie } from 'cookies-next';
-import Community from '../../components/Community';
 // import ApplyForm from '../../components/ApplyForm';
 import Profile from '../../components/Profile';
 import { decode } from 'jsonwebtoken';
@@ -57,7 +56,7 @@ function student(props) {
           }}>Events</li>
           <li onClick={(e)=>{
             e.preventDefault()
-            setactive('community')
+            setactive('communities')
           }}>Communities</li>
           <li onClick={(e)=>{
             setactive('profile')
@@ -67,7 +66,6 @@ function student(props) {
           </li>
         </ul>
         <Profile email={email} name={name} YOE={YOE} dept={DeptName} active={active}/>
-        <Community email={email} name={name} YOE={YOE} dept={DeptName} active={active}/>
       </div>
       
       <div className='flex flex-col md:pb-4 lg:pb-0 md:flex-row lg:flex-col md:right-0 md:ml-10 lg:m-10 md:mt-3 mt-7 w-[100%] lg:w-1/4'>
