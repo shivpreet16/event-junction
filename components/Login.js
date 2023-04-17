@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/router";
-// import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 
 const Login = () => {
   const router = new useRouter();

@@ -4,7 +4,6 @@ import AllEvents from '../../components/AllEvents';
 import { useRouter } from 'next/router';
 import { getCookie, parseCookie } from 'cookies-next';
 import Community from '../../components/Community';
-// import ApplyForm from '../../components/ApplyForm';
 import Profile from '../../components/Profile';
 import { decode } from 'jsonwebtoken';
 import { resolve } from 'styled-jsx/css';
@@ -29,7 +28,6 @@ export async function getServerSideProps(context) {
 }
 
 function student(props) {
-  // const { email } = props.data.stu_email
   const [name, setName] = useState('')
   const [YOE, setYOE] = useState('')
   const [DeptName, setDeptName] = useState('')
@@ -39,13 +37,11 @@ function student(props) {
     if(!getCookie('student_cookie')){
         router.push('/')
     }
-    console.log(props);
     setName(props.data.name)
     setYOE(props.data.year_of_enr)
     setDeptName(props.data.dept)
     setemail(props.data.email)
   }, [])
-  // const [data, setData] = useState({})
   
   return (
     <div className='max-h-fit h-full lg:h-[100vh] w-full  flex flex-col lg:flex-row justify-between gradient'>
