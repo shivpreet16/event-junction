@@ -13,9 +13,6 @@ export default function submitPas(req, res) {
                 
                 if(data.oldpass === rowvals[0].stu_pass){
                     client.query(queries.updateStudentPass, [data.newpass, data.stu_email], (err2, result2)=>{
-                        // const newrowvals = result2.rows
-            //             console.log('Updation')
-            //             console.log(newrowvals)
                         if (!err2){
                             res.send(JSON.stringify({'message' : 'Updated password'}))
                         }
