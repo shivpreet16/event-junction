@@ -11,8 +11,9 @@ const Profile = ({ email, name, YOE, dept, active }) => {
   const passwordHandler = async (e) => {
     e.preventDefault()
     const val = {
-      'oldpassword': oldpass,
-      'newpassword': newpass
+      stu_email : email,
+      oldpass: oldpass,
+      newpass: newpass
     }
 
     const response = await fetch('/api/submitPass', {
@@ -23,9 +24,10 @@ const Profile = ({ email, name, YOE, dept, active }) => {
           'Content-Type': 'application/json',
       },
     })
-    const message = response.json()
-    console.log(message.message)
+    const message = await response.json()
+    console.log(message)
   }
+  
   return (
     <div
       className={`bg-[#edededed] h-full w-80% ml-10 flex flex-col mb-10 rounded-[10px] text-[#6d8667] justify-center items-center relative ${
@@ -103,7 +105,9 @@ const Profile = ({ email, name, YOE, dept, active }) => {
             />
           </div>
         </div>
-        <button onClick={passwordHandler}>Submit</button>
+        <button onClick={(e)=>{
+          passwordHandler(e)
+        }}>Submit</button>
       </div>
     </div>
   );

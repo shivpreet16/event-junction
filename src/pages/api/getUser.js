@@ -11,7 +11,6 @@ export default function submit(req, res) {
       if(!err){
 
         const rowvals = result.rows;
-        console.log(rowvals)
         res.send(JSON.stringify({
           'email': rowvals[0].stu_email,
           'name': rowvals[0].stu_name,
