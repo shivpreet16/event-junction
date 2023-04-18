@@ -1,10 +1,11 @@
-import { Router } from 'next/router'
+import { Router, useRouter } from 'next/router'
 import React, {useEffect, useState} from 'react'
 import { getCookie } from 'cookies-next'
 
-const router = require('next/router')
 
 const new_community = () => {
+      const router = useRouter()
+
         useEffect(() => {
         if(!getCookie('student_cookie')){
             router.push("/")
