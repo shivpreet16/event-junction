@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import Calendar from '../../components/Calendar'
 import AllEvents from '../../components/AllEvents';
-import { useRouter } from 'next/router';
+import {  useRouter } from 'next/router';
 import { getCookie, parseCookie } from 'cookies-next';
 import Community from '../../components/Community';
 import Profile from '../../components/Profile';
@@ -32,10 +32,12 @@ function student(props) {
   const [YOE, setYOE] = useState('')
   const [DeptName, setDeptName] = useState('')
   const [active, setactive] = useState('profile')
+  
+  const router = useRouter()
   const [email, setemail] = useState('')
   useEffect(() => {
     if(!getCookie('student_cookie')){
-        router.push('/')
+      router.push('/')
     }
     setName(props.data.name)
     setYOE(props.data.year_of_enr)

@@ -10,7 +10,7 @@ decided_events=([appliction_id], event_name, event_desc, status, dateSubmitted, 
 
 requirements=([application_id], req)
 
-communities=([community_name], date_of_creation, verified_status)
+communities=([community_name], date_of_creation, verified_status, desc)
 
 student_coordinators=({community_name}, {stu_email})
 
