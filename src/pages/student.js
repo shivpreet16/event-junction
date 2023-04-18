@@ -53,7 +53,9 @@ function student(props) {
             e.preventDefault()
             setactive('events')
           }}>Events</li>
-          <li onClick={(e)=>{
+          <li
+          className='cursor-pointer'
+          onClick={(e)=>{
             e.preventDefault()
             setactive('community')
           }}>Communities</li>
