@@ -5,7 +5,10 @@ const router = require('next/router')
 
 const Community = ({ email, name, YOE, dept, active }) => {
   function onCreateHandler(){
-    router.push("/new_community")
+    router.push({
+      pathname:"/new_community",
+      query: { email: email },
+    })
   }
   return (
     <div
