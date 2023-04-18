@@ -11,7 +11,7 @@ import { resolve } from 'styled-jsx/css';
 //getStaticProps
 export async function getServerSideProps(context) {
   const url=context.query
-  const response = await fetch('http://localhost:3000/api/getUser',{
+  const response = await fetch('http://localhost:3000/api/getStudentUser',{
     method:'POST',
     body:JSON.stringify({
       "email":url.email

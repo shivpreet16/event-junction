@@ -35,6 +35,7 @@ const Login = () => {
       if (email.includes("fcs"))
         router.push({
           pathname: "/faculty",
+          query: { email: email },
         });
       else {
         router.push({
