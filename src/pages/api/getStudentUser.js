@@ -5,7 +5,6 @@ import { setCookie } from 'cookies-next';
 import jwt from "jsonwebtoken"
 
 export default function submit(req, res) {
-  if (req.method === "POST") {
     const data = req.body;
     client.query(queries.getStudentById, [data.email], (err, result) => {
       if(!err){
@@ -22,5 +21,4 @@ export default function submit(req, res) {
         res.send(err);
       }
     })
-  }
 }

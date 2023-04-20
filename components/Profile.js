@@ -1,22 +1,28 @@
 import React, { useState } from "react";
 
-const Profile = ({ email, name, YOE, dept, active }) => {
+const Profile = ({ email, name, YOE, dept, active, usertype }) => {
   const [password, setpassword] = useState(false);
   const [visible, setvisible] = useState(0);
   const [type, settype] = useState("password");
   var src = ["visible.svg", "visible_off.svg"];
   const[newpass, setNewpass] = useState('')
   const [oldpass, setoldpass] = useState('')
+  const [API, setAPI] = useState('')
 
   const passwordHandler = async (e) => {
     e.preventDefault()
     const val = {
-      stu_email : email,
+      email : email,
       oldpass: oldpass,
       newpass: newpass
     }
 
-    const response = await fetch('/api/submitPass', {
+    if(usertype==='student'){
+      setAPI('/api/submitPassStudent')
+    } else{
+      setAPI('/api/submitPassFac')
+    }
+    const response = await fetch(API, {
       method: 'POST',
       body: JSON.stringify(val),
       credentials: 'include',

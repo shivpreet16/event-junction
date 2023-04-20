@@ -40,7 +40,7 @@ const new_community = () => {
 
   return (
     <div className='bg-[#ededed] h-screen w-full'>
-      <form action="" className='flex flex-col gap-10 pt-10'>
+      <form action="" className='flex flex-col gap-10 pt-10 w-full items-center'>
         <div className='flex gap-8'>
           <span>Name of Community</span>
           <input type="text" placeholder='community name' className='rounded-lg p-2' onChange={(e) => { setcommunity_name(e.target.value) }} />

@@ -1,4 +1,3 @@
-import React from 'react'
 const queries = require("../../controllers/queries.js")
 const client = require("../../controllers/client.js");
 

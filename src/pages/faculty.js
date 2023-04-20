@@ -57,7 +57,7 @@ export default function faculty(props) {
           setactive('Profile')
         }}>Profile</li>
       </ul>
-    <Profile email={Email} name={name} dept={DeptName} active={active}/>
+    <Profile email={Email} name={name} dept={DeptName} active={active} usertype={"faculty"}/>
   </div>
     <div className='flex flex-col md:pb-4 lg:pb-0 md:flex-row lg:flex-col md:right-0 md:ml-10 lg:m-10 md:mt-3 mt-7 w-[100%] lg:w-1/4'>
       <Calendar />

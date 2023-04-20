@@ -66,7 +66,7 @@ function student(props) {
             Profile
           </li>
         </ul>
-        <Profile email={email} name={name} YOE={YOE} dept={DeptName} active={active}/>
+        <Profile email={email} name={name} YOE={YOE} dept={DeptName} active={active} usertype={"student"}/>
         <Community email={email} name={name} YOE={YOE} dept={DeptName} active={active}/>
       </div>
       
